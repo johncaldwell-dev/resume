@@ -1,4 +1,4 @@
-from fpdf import FPDF
+import fpdf2
 import os
 
 #page format
@@ -16,7 +16,7 @@ normal_height = 12
 align_subtitles = 'L'
 
 def boldText(text): return('\033[1m {}\033[0m'.format(text))
-pdf = FPDF(orientation='P', unit='pt', format=format)
+pdf = fpdf2(orientation='P', unit='pt', format=format)
 pdf.add_page()
 
 
@@ -39,7 +39,10 @@ pdf.set_font(font_family, style='B', size=subheader_size)
 pdf.cell(w=0, h=subheader_height, txt="summary".upper(), align=align_subtitles, ln=True)
 
 pdf.set_font(font_family, size=normal_text_size)
-summary = '''Highly experienced computer professional with over 20 years of hands-on experience in programming, system administration, and networking. Proven ability to successfully implement, maintain, and troubleshoot computer systems. Strong commitment to customer service and a commitment to ensure user experience and productivity is always at its best. Skilled in setting up and maintaining computer systems, as well as coding and software engineering principles.'''
+summary = '''Results-oriented Backend Python Developer with a strong background in IT systems, automation, and real-world problem solving. I specialize in writing clean, efficient Python code to automate processes, integrate APIs, and work with databases in practical production environments.
+With over 10 years of experience in IT and systems support, I bring a deep understanding of how software interacts with networks, users, and business operations—allowing me to build backend solutions that are reliable, maintainable, and scalable.
+I’m actively seeking a junior to mid-level backend Python developer role where I can contribute immediately, continue growing, and build software that solves real problems.'''
+
 pdf.multi_cell(w=0, h=info_height, txt=summary)
 
 pdf.multi_cell(w=0, h=15)
@@ -77,21 +80,21 @@ pdf.multi_cell(w=0,h=15, txt=tools_values)
 pdf.multi_cell(w=0, h=15)
 
 pdf.set_font(font_family, style='B', size=subheader_size)
-pdf.cell(w=0, h=subheader_height, txt="projects".upper(), align=align_subtitles, ln=True)
+pdf.cell(w=0, h=subheader_height, txt="Work Experience".upper(), align=align_subtitles, ln=True)
 
 pdf.multi_cell(w=0, h=15)
 
-pdf.set_font(font_family, style='B', size=subheader_size)
-pdf.cell(w=0, h=subheader_height, txt="education".upper(), align=align_subtitles, ln=True)
+# pdf.set_font(font_family, style='B', size=subheader_size)
+# pdf.cell(w=0, h=subheader_height, txt="education".upper(), align=align_subtitles, ln=True)
 
-pdf.multi_cell(w=0, h=15)
+# pdf.multi_cell(w=0, h=15)
 
-pdf.set_font(font_family, style='B', size=subheader_size)
-pdf.cell(w=0, h=subheader_height, txt="certifications".upper(), align=align_subtitles, ln=True)
+# pdf.set_font(font_family, style='B', size=subheader_size)
+# pdf.cell(w=0, h=subheader_height, txt="certifications".upper(), align=align_subtitles, ln=True)
 
-pdf.multi_cell(w=0, h=15)
+# pdf.multi_cell(w=0, h=15)
 
-pdf.set_font(font_family, style='B', size=subheader_size)
-pdf.cell(w=0, h=subheader_height, txt="volunteer".upper(), align=align_subtitles, ln=True)
+# pdf.set_font(font_family, style='B', size=subheader_size)
+# pdf.cell(w=0, h=subheader_height, txt="volunteer".upper(), align=align_subtitles, ln=True)
 
 pdf.output('resume.pdf')
